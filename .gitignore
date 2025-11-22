@@ -1,0 +1,18 @@
+# Data directory
+data/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Coverage files
+.coverage
+.coverage.*
+*.coverage
+.early.coverage
+htmlcov/
+.coverage_html/
+coverage.xml
+*.cover

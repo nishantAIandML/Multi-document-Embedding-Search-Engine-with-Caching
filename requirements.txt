@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+sentence-transformers
+transformers>=4.0.0
+faiss-cpu
+numpy
+scipy
+python-multipart
+pydantic
+nltk
+streamlit
+joblib
+tqdm
+torch
+python-dotenv
+scikit-learn
+pandas
