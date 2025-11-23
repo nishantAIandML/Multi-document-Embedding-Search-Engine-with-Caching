@@ -4,12 +4,12 @@ A fast, efficient semantic search engine built with sentence transformers and FA
 
 ## Features
 
-- 🔍 **Semantic Search**: Uses sentence transformers to find documents by meaning, not just keywords
-- ⚡ **Fast Indexing**: FAISS-powered vector search with automatic numpy fallback
-- 💾 **Smart Caching**: SQLite-based embedding cache to avoid recomputing embeddings
-- 🚀 **REST API**: FastAPI-based API for easy integration
-- 🎨 **Web Interface**: Streamlit app for interactive searching
-- 📦 **Lightweight**: Minimal dependencies, works with CPU-only setups
+- **Semantic Search**: Uses sentence transformers to find documents by meaning, not just keywords
+- **Fast Indexing**: FAISS-powered vector search with automatic numpy fallback
+- **Smart Caching**: SQLite-based embedding cache to avoid recomputing embeddings
+- **REST API**: FastAPI-based API for easy integration
+- **Web Interface**: Streamlit app for interactive searching
+- **Lightweight**: Minimal dependencies, works with CPU-only setups
 
 ## Installation
 
