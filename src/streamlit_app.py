@@ -10,16 +10,16 @@ API_URL = st.sidebar.text_input('API URL', value='http://localhost:8000', help='
 try:
     health_res = requests.get(f'{API_URL}/health', timeout=2)
     if health_res.status_code == 200:
-        st.sidebar.success('✅ API connected')
+        st.sidebar.success('API connected')
         health_data = health_res.json()
         if 'docs_loaded' in health_data:
-            st.sidebar.info(f"📚 {health_data.get('docs_loaded', 0)} documents loaded")
+            st.sidebar.info(f"{health_data.get('docs_loaded', 0)} documents loaded")
     else:
-        st.sidebar.warning('⚠️ API returned an error')
+        st.sidebar.warning('API returned an error')
 except requests.exceptions.ConnectionError:
-    st.sidebar.error('❌ Cannot connect to API. Make sure the server is running:\n\n`uvicorn src.api:app --reload`')
+    st.sidebar.error('Cannot connect to API. Make sure the server is running:\n\n`uvicorn src.api:app --reload`')
 except requests.exceptions.RequestException as e:
-    st.sidebar.error(f'❌ API error: {str(e)}')
+    st.sidebar.error(f'API error: {str(e)}')
 
 # Search interface
 query = st.text_input('Query', placeholder='Enter your search query...')
@@ -50,10 +50,10 @@ if st.button('Search', type='primary'):
                 st.info('No results found')
                 
         except requests.exceptions.ConnectionError:
-            st.error('❌ Cannot connect to API server. Please make sure it is running:\n\n```bash\nuvicorn src.api:app --reload --port 8000\n```')
+            st.error('Cannot connect to API server. Please make sure it is running:\n\n```bash\nuvicorn src.api:app --reload --port 8000\n```')
         except requests.exceptions.Timeout:
-            st.error('⏱️ Request timed out. The search is taking too long.')
+            st.error('Request timed out. The search is taking too long.')
         except requests.exceptions.HTTPError as e:
-            st.error(f'❌ API error: {e.response.status_code} - {e.response.text}')
+            st.error(f'API error: {e.response.status_code} - {e.response.text}')
         except Exception as e:
-            st.error(f'❌ Error: {str(e)}')
+            st.error(f'Error: {str(e)}')

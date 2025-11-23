@@ -17,24 +17,24 @@ async def lifespan(app: FastAPI):
     global engine
     try:
         if not os.path.exists(DOCS_FOLDER):
-            print(f"⚠️  Warning: Documents folder '{DOCS_FOLDER}' does not exist.")
-            print(f"   Run 'python -m src.download_dataset' to download sample data.")
+            print(f"Warning: Documents folder '{DOCS_FOLDER}' does not exist.")
+            print(f"Run 'python -m src.download_dataset' to download sample data.")
             engine = None
         else:
-            print("🔹 Initializing search engine...")
+            print("Initializing search engine...")
             engine = SearchEngine(docs_folder=DOCS_FOLDER)
-            print("📚 Loading documents...")
+            print("Loading documents...")
             doc_count = engine.load_docs()
             if doc_count == 0:
-                print(f"⚠️  Warning: No documents found in '{DOCS_FOLDER}'")
-                print(f"   Run 'python -m src.download_dataset' to download sample data.")
+                print(f"Warning: No documents found in '{DOCS_FOLDER}'")
+                print(f"Run 'python -m src.download_dataset' to download sample data.")
             else:
-                print(f"   Found {doc_count} documents")
-                print("🔨 Building index...")
+                print(f"Found {doc_count} documents")
+                print("Building index...")
                 engine.build_index()
-                print("✅ Search engine ready!")
+                print("Search engine ready!")
     except Exception as e:
-        print(f"❌ Error initializing search engine: {e}")
+        print(f"Error initializing search engine: {e}")
         import traceback
         traceback.print_exc()
         engine = None
@@ -47,7 +47,7 @@ async def lifespan(app: FastAPI):
             engine.cache.close()
         except:
             pass
-    print("👋 Shutting down...")
+    print("Shutting down...")
 
 # ------------- API App -------------
 app = FastAPI(

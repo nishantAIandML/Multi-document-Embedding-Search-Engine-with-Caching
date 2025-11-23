@@ -10,7 +10,7 @@ class Embedder:
         Load embedding model (GPU if available)
         """
         device = "cuda" if torch.cuda.is_available() else "cpu"
-        print(f"🔹 Loading embedding model on {device}...")
+        print(f"Loading embedding model on {device}...")
         self.device = device
         self.model = SentenceTransformer(model_name, device=device)
 
